@@ -3,22 +3,10 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Files {
-    static File rem = new File("D:\\JavaPro\\ProjectX\\unwanted.txt");
+    static File rem = new File("D:\\Project\\Journal_Gpt\\unwanted.txt");
 
     static String[] getUnwanted() {
         String[] src = getinLine(1);
-        // System.out.println("unwanted s="+Arrays.toString(src));
-        /* 
-        try {
-            Scanner scan = new Scanner(Files.rem);
-            while (scan.hasNextLine()) {
-                src = scan.nextLine().split(" ");
-            }
-            scan.close();
-        } catch (Exception e) {
-            System.out.println("Error in setSrcFromFile() while reading");
-        }
-        */
         return src;
     }
 

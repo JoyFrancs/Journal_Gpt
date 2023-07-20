@@ -24,6 +24,7 @@ class X{
         //Remove object to be created only when the string array strArr is initialized
 
         RemovStr removStr = new RemovStr();
+        Journal journal =new Journal();
 
         //to break the loop - when one string is entered
         if(arrLen==1) break;
@@ -39,8 +40,20 @@ class X{
 
         System.out.println("the name is :"+StrOp.name);
         Print.msg("amt="+amt);
-        StrOp.name="";
+        //String[] op=strOp.getAccounts();
+        //System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
         
+        
+        if(strOp.has("sold")||strOp.has("sales")){
+            journal.algSold();
+            System.out.println("\n"+journal.dr+" Dr to "+journal.cr+" Cr");
+        }
+        else{
+            System.out.println("The transaction doesn't involve sales");
+        }
+
+        StrOp.name="";
+
         }
         else{
             Print.msg("The sentence you provided is not an transaction.");
