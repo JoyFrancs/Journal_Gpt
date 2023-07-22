@@ -25,12 +25,13 @@ class X{
 
         RemovStr removStr = new RemovStr();
         Journal journal =new Journal();
+        //Algorithm algorithm =new Algorithm();
 
         //to break the loop - when one string is entered
         if(arrLen==1) break;
 
         //creating whether the entered string is a TRANSACTION
-        if(strOp.hasOneAmt(strArr)){
+        if(strOp.hasOneAmt(strArr) && journal.hasAlgo){
 
         removStr.unwanted();
 
@@ -43,40 +44,24 @@ class X{
         //String[] op=strOp.getAccounts();
         //System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
         
-        
-        if(strOp.has("sold")){
-            journal.algSold("sold");
-
-            /* 
-            for(int i=0;i<arrLen;i++){
-                System.out.print(strArr[i]+" ");
-            }
-            */
-
-            System.out.println("\n\nJournal: "+journal.dr+" Dr to "+journal.cr+" Cr");
-            System.out.println("Comment : "+journal.cmt);
-        }
-        else if(strOp.has("sales")){
-            journal.algSold("sales");
-
-            for(int i=0;i<arrLen;i++){
-                System.out.print(strArr[i]+" ");
-            }
-
-            System.out.println("\nJournal: "+journal.dr+" Dr to "+journal.cr+" Cr");
-            System.out.println("Comment : "+journal.cmt);
+        /* 
+        if(algorithm.find()){
+            algorithm.execute();
         }
         else{
-            System.out.println("The transaction doesn't involve sales");
+            System.out.println("The transaction doesn't involve sales or credit");
         }
-
+        */
+        //algorithm.execute();
+        journal.begin();
+        journal.print();
         StrOp.name="";
         StrOp.nameAfterKey="";
-        journal.cmt="";
+        journal.reset();;
 
         }
         else{
-            Print.msg("The sentence you provided is not an transaction.");
+            Print.msg("Sorry, the transaction cannot be recognized.");
         }
 
         }

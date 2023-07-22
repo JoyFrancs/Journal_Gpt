@@ -16,18 +16,18 @@ public class StrOp implements StringOperations {
         for (i = 0; i < X.arrLen - 1; i++) {
             if (X.strArr[i].equals(key)) { // comparing the key to the string array
                 nameAfterKey = getName(lineNo, i, true);
-                /*if (strRelated(nameAfterKey,ignore)){
-                    System.out.println("has "+ignore);
-                    result=false;
-                }
-                */
+                System.out.println(nameAfterKey+" related to "+ignore+" "+(!strRelated(nameAfterKey,ignore)));
                 if (!strRelated(nameAfterKey,ignore) && !nameAfterKey.isEmpty())
                     result = true;
                 break;
             }
         }
-        System.out.println(" name after key:" + key + " = " + nameAfterKey);
+        // System.out.println(" name after key:" + key + " = " + nameAfterKey);
         return result;
+    }
+
+    boolean hasNameAfter(String key){
+        return hasNameAfter(key,"1");
     }
 
     String getName(int lineNo, int start, boolean strictCheck) {
@@ -183,10 +183,14 @@ public class StrOp implements StringOperations {
 
     public boolean strRelated(String s, String s2) {
         if (s.length() >= s2.length()) {
+            //System.out.println("cond1"+(s.indexOf(s2) >= 0) +" cond2:"+(s2.indexOf(s) >= 0));
             if (s.indexOf(s2) >= 0) {
                 return true;
             }
             if (s2.indexOf(s) >= 0) {
+                return true;
+            }
+            else if(s.equals(s2)){
                 return true;
             }
         }
