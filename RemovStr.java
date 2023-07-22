@@ -28,12 +28,14 @@ public class RemovStr {
         return str;
     }
 
+/* 
     static void atIndex(String[] s, int ind) {
         for (int i = ind; i < X.arrLen - 1; i++) {
             s[i] = s[i + 1];
         }
         X.arrLen--;
     }
+*/
 
     static void atIndex(int ind) {
         for (int i = ind; i < X.arrLen - 1; i++) {
@@ -46,7 +48,7 @@ public class RemovStr {
         setRemovSrc();
         for (int i = 0; i < X.arrLen; i++) {
             if (srcHasComplete(strArr[i])) {
-                atIndex(strArr, i--);
+                atIndex(i--);
             }
         }
     }

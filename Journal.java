@@ -3,6 +3,10 @@ public class Journal {
     String cmt="being ";
     StrOp strOp =new StrOp();
 
+    void algCap(String keyword){
+        
+    }
+
     void algSold(String keyword){
         //dr logic:
         if(strOp.has("credit")){
@@ -21,7 +25,7 @@ public class Journal {
         }
         //cr logic:
          //String tmp=strOp.getAccounts()[0];
-        if(strOp.hasNameAfter(keyword,"goods")){
+        if(strOp.hasNameAfter(keyword,"good")){
             cr=StrOp.nameAfterKey + " a/c";
         }
         else{

@@ -10,30 +10,65 @@ public class StrOp implements StringOperations {
     int amt;
 
     boolean hasNameAfter(String key, String ignore) {
-        boolean result=false;
+        boolean result = false;
         int lineNo = 3;
         int i;
-        for (i=0 ; i < X.arrLen - 1; i++) {
-            if (X.strArr[i].equals(key)) { //comparing the key to the string array
-               
-                String keys[] = Files.getinLine(lineNo);
-               
-                for (int j = 0; j < keys.length; j++) { 
-                    if (X.strArr[i + 1].equals(keys[j])) {  //checking the word after key to be keyword
-                        return result;                  //returns false
-                    }
+        for (i = 0; i < X.arrLen - 1; i++) {
+            if (X.strArr[i].equals(key)) { // comparing the key to the string array
+                nameAfterKey = getName(lineNo, i, true);
+                /*if (strRelated(nameAfterKey,ignore)){
+                    System.out.println("has "+ignore);
+                    result=false;
                 }
-
-                if (X.strArr[i + 1].equals(ignore))
-                    return result;                      //returns false
-                nameAfterKey = X.strArr[i + 1];
-                result=true;
+                */
+                if (!strRelated(nameAfterKey,ignore) && !nameAfterKey.isEmpty())
+                    result = true;
                 break;
             }
         }
-        System.out.println("name after key:" + key + " = " + nameAfterKey);
+        System.out.println(" name after key:" + key + " = " + nameAfterKey);
         return result;
     }
+
+    String getName(int lineNo, int start, boolean strictCheck) {
+        String name = new String();
+
+        String[] tmp = {};
+        if (Files.hasLine(lineNo)) {
+            tmp = Files.getinLine(lineNo);
+            // System.out.println("tmp= " + Arrays.toString(tmp));
+
+            boolean continuos = true, nameGot = false;
+            a: for (int i = start; i < X.arrLen; i++) {
+                for (int j = 0; j < tmp.length; j++) {
+                    // System.out.println("str1 =" + X.strArr[i] + " str2= " + tmp[j]);
+                    if (X.strArr[i].equals(tmp[j])) {
+                        // System.out.println(X.strArr[i] + " is equal to " + tmp[j]);
+                        if (nameGot) {
+                            continuos = false;
+                            break a;
+                        }
+
+                        continue a;
+                    }
+                }
+                if (continuos) {
+                    if (nameGot)
+                        name += " ";
+                    name = name + X.strArr[i];
+                    nameGot = true;
+
+                    // to remove the name from the array
+                    RemovStr.atIndex(i);
+                    i--;
+                }
+            }
+        }
+
+        return name;
+    }
+
+    
 
     public boolean hasComplete(String s) {
         for (int i = 0; i < X.arrLen; i++) {
@@ -131,7 +166,8 @@ public class StrOp implements StringOperations {
                 nameGot = true;
 
                 // to remove the name from the array
-                RemovStr.atIndex(tmp, i);
+                RemovStr.atIndex(i);
+                i--;
             }
         }
         if (name.length() == 1) {
@@ -194,6 +230,14 @@ public class StrOp implements StringOperations {
         }
 
         return acc;
+    }
+
+    void printMain() {
+        System.out.println("\nMain array: [");
+        for (int i = 0; i < X.arrLen; i++) {
+            System.out.print(X.strArr[i] + " ");
+        }
+        System.out.println("]");
     }
 
 }

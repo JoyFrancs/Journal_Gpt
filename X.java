@@ -39,19 +39,21 @@ class X{
         strOp.getName();
 
         System.out.println("the name is :"+StrOp.name);
-        Print.msg("amt="+amt);
-        String[] op=strOp.getAccounts();
-        System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
+        Print.msg("amt="+amt+"\n");
+        //String[] op=strOp.getAccounts();
+        //System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
         
         
         if(strOp.has("sold")){
             journal.algSold("sold");
 
+            /* 
             for(int i=0;i<arrLen;i++){
                 System.out.print(strArr[i]+" ");
             }
+            */
 
-            System.out.println("\nJournal: "+journal.dr+" Dr to "+journal.cr+" Cr");
+            System.out.println("\n\nJournal: "+journal.dr+" Dr to "+journal.cr+" Cr");
             System.out.println("Comment : "+journal.cmt);
         }
         else if(strOp.has("sales")){
@@ -69,6 +71,8 @@ class X{
         }
 
         StrOp.name="";
+        StrOp.nameAfterKey="";
+        journal.cmt="";
 
         }
         else{
