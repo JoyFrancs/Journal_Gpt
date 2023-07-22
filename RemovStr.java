@@ -35,6 +35,13 @@ public class RemovStr {
         X.arrLen--;
     }
 
+    static void atIndex(int ind) {
+        for (int i = ind; i < X.arrLen - 1; i++) {
+            X.strArr[i] = X.strArr[i + 1];
+        }
+        X.arrLen--;
+    }
+
     void unwanted() {
         setRemovSrc();
         for (int i = 0; i < X.arrLen; i++) {

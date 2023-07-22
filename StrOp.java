@@ -3,11 +3,37 @@
 
 //import java.util.Arrays;
 
-public class StrOp implements StringOperations{
+public class StrOp implements StringOperations {
     static String line;
     static String name = "";
-
+    static String nameAfterKey = "";
     int amt;
+
+    boolean hasNameAfter(String key, String ignore) {
+        boolean result=false;
+        int lineNo = 3;
+        int i;
+        for (i=0 ; i < X.arrLen - 1; i++) {
+            if (X.strArr[i].equals(key)) { //comparing the key to the string array
+               
+                String keys[] = Files.getinLine(lineNo);
+               
+                for (int j = 0; j < keys.length; j++) { 
+                    if (X.strArr[i + 1].equals(keys[j])) {  //checking the word after key to be keyword
+                        return result;                  //returns false
+                    }
+                }
+
+                if (X.strArr[i + 1].equals(ignore))
+                    return result;                      //returns false
+                nameAfterKey = X.strArr[i + 1];
+                result=true;
+                break;
+            }
+        }
+        System.out.println("name after key:" + key + " = " + nameAfterKey);
+        return result;
+    }
 
     public boolean hasComplete(String s) {
         for (int i = 0; i < X.arrLen; i++) {
@@ -18,7 +44,7 @@ public class StrOp implements StringOperations{
         return false;
     }
 
-    //supporting method for unwanted()
+    // supporting method for unwanted()
     public boolean has(String s) {
         for (int i = 0; i < X.arrLen; i++) {
             if (s.indexOf(X.strArr[i]) >= 0) {
@@ -60,7 +86,7 @@ public class StrOp implements StringOperations{
                 if (Character.isDigit(tmp.charAt(0))) {
                     int l = Integer.parseInt(tmp);
                     amt = l;
-                    RemovStr.atIndex(s, i);
+                    RemovStr.atIndex(i);
 
                     if (!oneAmt)
                         oneAmt = true;
@@ -103,6 +129,9 @@ public class StrOp implements StringOperations{
                     name += " ";
                 name = name + X.strArr[i];
                 nameGot = true;
+
+                // to remove the name from the array
+                RemovStr.atIndex(tmp, i);
             }
         }
         if (name.length() == 1) {
@@ -131,7 +160,7 @@ public class StrOp implements StringOperations{
     public String[] getAccounts() {
         String[] ac = {}, acName = {};
         String[] acc = { "empty", "empty" };
-        int lineN0 = 3;
+        int lineN0 = 4;
         if (Files.hasLine(lineN0)) {
             ac = Files.getinLine(lineN0);
             if (Files.hasLine(lineN0 + 1))

@@ -40,13 +40,29 @@ class X{
 
         System.out.println("the name is :"+StrOp.name);
         Print.msg("amt="+amt);
-        //String[] op=strOp.getAccounts();
-        //System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
+        String[] op=strOp.getAccounts();
+        System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
         
         
-        if(strOp.has("sold")||strOp.has("sales")){
-            journal.algSold();
-            System.out.println("\n"+journal.dr+" Dr to "+journal.cr+" Cr");
+        if(strOp.has("sold")){
+            journal.algSold("sold");
+
+            for(int i=0;i<arrLen;i++){
+                System.out.print(strArr[i]+" ");
+            }
+
+            System.out.println("\nJournal: "+journal.dr+" Dr to "+journal.cr+" Cr");
+            System.out.println("Comment : "+journal.cmt);
+        }
+        else if(strOp.has("sales")){
+            journal.algSold("sales");
+
+            for(int i=0;i<arrLen;i++){
+                System.out.print(strArr[i]+" ");
+            }
+
+            System.out.println("\nJournal: "+journal.dr+" Dr to "+journal.cr+" Cr");
+            System.out.println("Comment : "+journal.cmt);
         }
         else{
             System.out.println("The transaction doesn't involve sales");
