@@ -26,5 +26,16 @@ public class AlgoMap {
         map.put("bought",4);
         //paid a/c
         map.put("paid",5);
+        //received 
+        map.put("received",6);
+        map.put("withdraw",6);
+        map.put("withdrawn",6);
+        map.put("withdrew",6);
+        map.put("drew",6);
+        map.put("check",6);
+        
+        
+        
+        
     }
 }

@@ -36,6 +36,14 @@ public class Algorithm extends AlgoMap {
             System.out.println(keyword+" is redirected to purchase algorithm");
             new AlgPur().algPur(keyword);
             break;
+            case 5:
+            System.out.println(keyword+" is redirected to paid algorithm");
+            new AlgPad().algPad(keyword);
+            break;
+            case 6:
+            System.out.println(keyword+" is redirected to received algorithm");
+            new AlgRec().algRec(keyword);
+            break;
             default:
             System.out.println("error in key values of key "+keyword);
         }
