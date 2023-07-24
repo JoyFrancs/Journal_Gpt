@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Algorithm extends AlgoMap {
 
     String dr = "", cr = "", cmt = "";
@@ -71,22 +73,27 @@ public class Algorithm extends AlgoMap {
 
 class AlgRet extends Algorithm {
     void algRet(String keyword) {
+        addCmt("being returned "+(strOp.hasNameAfter(keyword)?StrOp.nameAfterKey:""));
         if (!X.inp.split(" ")[0].equalsIgnoreCase(StrOp.name)) {
             // dr logic
-            System.out.println("Str input =" + X.inp);
+            //System.out.println("Str input =" + X.inp);
             if (strOp.has("Credit")) {
                 dr = "Credit a/c";
             } else if (strOp.has("cash") || StrOp.name.isEmpty()) {
                 dr = "Cash a/c";
             } else {
+                addCmt(" to "+StrOp.name );
                 dr = StrOp.name + " a/c";
             }
             // cr logic
+            
             if (strOp.has("goods")) {
                 cr = "Purchase Return a/c";
+                
             } else {
                 cr = "Return a/c";
             }
+            
         } else {
 
             // dr logic
@@ -98,6 +105,7 @@ class AlgRet extends Algorithm {
             } else if (strOp.has("cash") || StrOp.name.isEmpty()) {
                 cr = "Cash a/c";
             } else {
+                addCmt(" to "+StrOp.name );
                 cr = StrOp.name + " a/c";
             }
 

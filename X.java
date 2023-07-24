@@ -45,23 +45,12 @@ class X{
 
     //    System.out.println("the name is :"+StrOp.name);
     //    Print.msg("amt="+amt+"\n");
-        //String[] op=strOp.getAccounts();
-        //System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
         
-        /* 
-        if(algorithm.find()){
-            algorithm.execute();
-        }
-        else{
-            System.out.println("The transaction doesn't involve sales or credit");
-        }
-        */
-        //algorithm.execute();
         journal.begin();
         journal.print();
         StrOp.name="";
         StrOp.nameAfterKey="";
-        journal.reset();;
+        journal.reset();
 
         }
         else{

@@ -15,6 +15,6 @@ interface StringOperations {
 
     boolean strRelated(String s, String s2);  //s should have great length than s2
 
-    String[] getAccounts();
+    //String[] getAccounts();
 
 }

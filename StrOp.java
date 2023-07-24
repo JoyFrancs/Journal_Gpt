@@ -196,46 +196,7 @@ public class StrOp implements StringOperations {
         }
         return false;
     }
-
-    public String[] getAccounts() {
-        String[] ac = {}, acName = {};
-        String[] acc = { "empty", "empty" };
-        int lineN0 = 4;
-        if (Files.hasLine(lineN0)) {
-            ac = Files.getinLine(lineN0);
-            if (Files.hasLine(lineN0 + 1))
-                acName = Files.getinLine(lineN0 + 1);
-        }
-
-        // System.out.println("Line 3= "+Arrays.toString(ac));
-        // System.out.println("Line 4= "+Arrays.toString(acName));
-
-        if (ac.length == acName.length) {
-
-            for (int i = 0; i < X.arrLen; i++) {
-                for (int j = 0; j < ac.length; j++) {
-                    // System.out.println("main string: "+X.strArr[i]+" cmp 2 "+ac[j]);
-                    if (X.strArr[i].equals(ac[j])) {
-                        if (acc[0].equals("empty"))
-                            acc[0] = acName[j] + " a/c";
-                        else
-                            acc[1] = acName[j] + " a/c";
-                        break;
-                    }
-                }
-                if (!acc[1].equals("empty"))
-                    return acc;
-            }
-            if (acc[1].equals("empty"))
-                acc[1] = name + " a/c";
-
-        } else {
-            System.out.println("File Source reference are unequal");
-        }
-
-        return acc;
-    }
-
+    
     void printMain() {
         System.out.println("\nMain array: [");
         for (int i = 0; i < X.arrLen; i++) {
