@@ -15,8 +15,8 @@ public class StrOp implements StringOperations {
         int i;
         for (i = 0; i < X.arrLen - 1; i++) {
             if (X.strArr[i].equals(key)) { // comparing the key to the string array
-                nameAfterKey = getName(lineNo, i, true);
-                System.out.println(nameAfterKey+" related to "+ignore+" "+(!strRelated(nameAfterKey,ignore)));
+                nameAfterKey = getName(lineNo, i+1, true);
+                //System.out.println(nameAfterKey+" not related to "+ignore+" "+(!strRelated(nameAfterKey,ignore)));
                 if (!strRelated(nameAfterKey,ignore) && !nameAfterKey.isEmpty())
                     result = true;
                 break;
@@ -41,7 +41,7 @@ public class StrOp implements StringOperations {
             boolean continuos = true, nameGot = false;
             a: for (int i = start; i < X.arrLen; i++) {
                 for (int j = 0; j < tmp.length; j++) {
-                    // System.out.println("str1 =" + X.strArr[i] + " str2= " + tmp[j]);
+                     //System.out.println("str1 =" + X.strArr[i] + " str2= " + tmp[j]);
                     if (X.strArr[i].equals(tmp[j])) {
                         // System.out.println(X.strArr[i] + " is equal to " + tmp[j]);
                         if (nameGot) {

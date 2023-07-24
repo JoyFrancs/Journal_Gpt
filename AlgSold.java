@@ -1,41 +1,37 @@
 public class AlgSold extends Algorithm {
-    
-    void algSold(String keyword){
-        //dr logic:
-        if(strOp.has("credit")){
-            if(StrOp.name.equals("")){
-            dr="Credit a/c";
+
+    void algSold(String keyword) {
+        // dr logic:
+        if (strOp.has("credit")) {
+            if(!StrOp.name.isEmpty()){
+                dr=StrOp.name+" a/c";
             }
             else{
-                dr= StrOp.name+" a/c";
+            dr = "Credit a/c";
             }
+        } else if (strOp.has("cash") || StrOp.name.equals("")) {
+            dr = "Cash a/c";
+
+        } else {
+            dr = StrOp.name + " a/c";
+        }
+        // cr logic:
+        if (strOp.hasNameAfter(keyword, "good")) {
+            cr = StrOp.nameAfterKey + " a/c";
+        } else {
+            cr = "Sales a/c";
         }
 
-        else {
-            dr="Cash a/c";
-        }
-        //cr logic:
-        if(strOp.hasNameAfter(keyword,"good")){
-            cr=StrOp.nameAfterKey + " a/c";
-        }
-        else{
-            cr="Sales a/c";
-        }
-
-        //cmt logic
+        // cmt logic
         addCmt("being sold ");
 
-        if(StrOp.nameAfterKey.isEmpty()){
+        if (StrOp.nameAfterKey.isEmpty()) {
             addCmt("goods");
-        }
-        else{
+        } else {
             addCmt(StrOp.nameAfterKey);
         }
-        Journal.setJournal(dr,cr,cmt);
+        Journal.setJournal(dr, cr, cmt);
     }
-    
-    void addCmt(String s){
-        cmt=cmt+s;
-    }
-    
+
+
 }

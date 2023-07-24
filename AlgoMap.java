@@ -26,6 +26,8 @@ public class AlgoMap {
         map.put("bought",4);
         //paid a/c
         map.put("paid",5);
+        map.put("met",5);
+        
         //received 
         map.put("received",6);
         map.put("withdraw",6);
@@ -33,9 +35,12 @@ public class AlgoMap {
         map.put("withdrew",6);
         map.put("drew",6);
         map.put("check",6);
-        
-        
-        
-        
+
+        //returned
+        map.put("returned",7);
+        map.put("return",7);       
+        //settled
+        map.put("settled",8);
+        map.put("settle",8);
     }
 }

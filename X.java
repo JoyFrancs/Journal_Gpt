@@ -5,6 +5,8 @@ class X{
 
     static String[] strArr;
     static String name="";
+
+    static String inp;
     
     public static void main(String[] args){
         try{
@@ -16,7 +18,7 @@ class X{
         //string operation class StrOp object creation
         StrOp strOp =new StrOp();
 
-        String inp=sc.nextLine();
+        inp=sc.nextLine();
         strOp.getString(inp);
         strArr=strOp.getStrArr();
         arrLen=strArr.length; //initializing the array length
@@ -39,8 +41,10 @@ class X{
     
         strOp.getName();
 
-        System.out.println("the name is :"+StrOp.name);
-        Print.msg("amt="+amt+"\n");
+        System.out.println();
+
+    //    System.out.println("the name is :"+StrOp.name);
+    //    Print.msg("amt="+amt+"\n");
         //String[] op=strOp.getAccounts();
         //System.out.println("\nAcc1: "+op[0]+" Acc2: "+op[1]);
         
